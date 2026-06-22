@@ -152,24 +152,63 @@ nav {
 }
 .skill-slide img { width: 100%; height: auto; display: block; }
 
-/* Responsivo: tablet — 1 slide */
+/* ── RESPONSIVO TABLET ── */
 @media (max-width: 900px) {
-  .skills-section { padding: 48px 40px 56px; }
+  :root { --gutter: 40px; }
+
+  /* Nav */
+  nav { padding: 0 var(--gutter); }
+
+  /* Intro */
+  .section-intro { flex-direction: column; padding: 56px var(--gutter) 48px; gap: 40px; }
+  .intro-right { width: 100%; }
+  .intro-title { font-size: 36px; }
+
+  /* Overview */
+  .section-overview { padding: 56px var(--gutter) 48px; }
+  .overview-img { height: 360px; }
+
+  /* Carrossel — 1 slide */
+  .skills-section { padding: 48px var(--gutter) 56px; }
   .skill-slide {
-    flex: 0 0 calc(100vw - 258px);
-    width: calc(100vw - 258px);
+    flex: 0 0 calc(100vw - 2 * 40px - 2 * (44px + 16px));
+    width: calc(100vw - 2 * 40px - 2 * (44px + 16px));
   }
+
+  /* Footer */
+  footer { height: auto; padding: 24px var(--gutter); flex-direction: column; gap: 6px; text-align: center; }
 }
 
-/* Responsivo: mobile */
+/* ── RESPONSIVO MOBILE ── */
 @media (max-width: 560px) {
-  .skills-section { padding: 40px 20px 48px; }
+  :root { --gutter: 20px; }
+
+  /* Nav */
+  .nav-back { font-size: 13px; padding: 8px 12px; }
+  .nav-cycle { font-size: 12px; }
+
+  /* Intro */
+  .section-intro { padding: 40px var(--gutter) 36px; gap: 28px; }
+  .intro-title { font-size: 28px; }
+  .intro-desc { font-size: 15px; }
+  .csat-card { padding: 28px 20px; }
+  .csat-score { font-size: 48px; }
+  .chip { font-size: 13px; padding: 8px 12px; }
+
+  /* Overview */
+  .section-overview { padding: 40px var(--gutter) 36px; }
+  .overview-img { height: 220px; }
+  .sec-title { font-size: 20px; }
+
+  /* Carrossel */
+  .skills-section { padding: 36px var(--gutter) 44px; }
   .arrow-btn { width: 36px; height: 36px; font-size: 18px; }
   .carousel-row { gap: 10px; }
   .skill-slide {
-    flex: 0 0 calc(100vw - 182px);
-    width: calc(100vw - 182px);
+    flex: 0 0 calc(100vw - 2 * 20px - 2 * (36px + 10px));
+    width: calc(100vw - 2 * 20px - 2 * (36px + 10px));
   }
+  .skills-hdr { margin-bottom: 24px; }
 }
 
 .arrow-btn {
