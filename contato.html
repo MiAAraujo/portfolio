@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Emilene Araújo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-cream: #faf8f4;
+  --bg-warm: #f2eae1;
+  --bg-card: #eae3d9;
+  --bg-chip: #eddccc;
+  --primary: #623b17;
+  --text-dark: #18110c;
+  --text-body: #393027;
+  --text-muted: #6b6055;
+  --border: #ccc4ba;
+  --font: 'Inter', sans-serif;
+  --gutter: 80px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg-cream);
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  height: 72px; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-back {
+  display: inline-flex; align-items: center;
+  padding: 10px 16px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 14px; font-weight: 500; color: var(--text-body);
+  text-decoration: none; background: var(--bg-cream); transition: background .2s;
+}
+.nav-back:hover { background: var(--bg-card); }
+.nav-logo { font-size: 18px; font-weight: 700; color: var(--primary); }
+.nav-spacer { width: 130px; }
+
+/* SECTION HERO */
+.section-hero {
+  padding: 96px var(--gutter) 80px;
+  display: flex; gap: 80px; align-items: flex-start;
+  background: var(--bg-cream);
+}
+.hero-left { flex: 0 0 580px; display: flex; flex-direction: column; gap: 24px; }
+.hero-label {
+  font-size: 12px; font-weight: 500; color: var(--primary);
+  text-transform: uppercase; letter-spacing: 2.5px;
+}
+.hero-title {
+  font-size: 56px; font-weight: 700; color: var(--text-dark);
+  line-height: 1.15; letter-spacing: -1.5px;
+}
+.rule { width: 48px; height: 3px; background: var(--primary); border-radius: 2px; }
+.hero-desc { font-size: 18px; color: var(--text-body); line-height: 1.65; }
+
+/* AVAILABILITY CARD */
+.hero-right { flex: 0 0 480px; }
+.avail-card {
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 40px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.status-row { display: flex; align-items: center; gap: 10px; }
+.status-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #3a9e4e;
+  box-shadow: 0 0 0 3px rgba(58,158,78,.2);
+  flex-shrink: 0;
+}
+.status-text { font-size: 14px; font-weight: 500; color: #4a280e; }
+.avail-name { font-size: 28px; font-weight: 700; color: var(--text-dark); }
+.avail-role { font-size: 15px; color: var(--text-muted); }
+.avail-rule { height: 3px; background: var(--border); border-radius: 2px; }
+.avail-loc { font-size: 14px; color: var(--text-muted); }
+
+/* SECTION CONTACT */
+.section-contact {
+  background: var(--bg-warm);
+  padding: 72px var(--gutter) 80px;
+  display: flex; gap: 80px; align-items: flex-start;
+}
+.col-info { flex: 0 0 560px; display: flex; flex-direction: column; gap: 24px; }
+.col-social { flex: 0 0 620px; display: flex; flex-direction: column; gap: 24px; }
+
+.col-label {
+  font-size: 11px; font-weight: 500; color: var(--primary);
+  text-transform: uppercase; letter-spacing: 2px;
+}
+.col-title { font-size: 28px; font-weight: 700; color: var(--text-dark); letter-spacing: -0.5px; }
+
+/* INFO CARDS */
+.info-card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 20px;
+  height: 92px;
+  text-decoration: none;
+  transition: box-shadow .2s, transform .2s;
+}
+.info-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); transform: translateY(-2px); }
+.icon-circle {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--bg-chip);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; overflow: hidden;
+}
+.icon-circle img { width: 22px; height: 22px; object-fit: contain; display: block; }
+.card-text { display: flex; flex-direction: column; gap: 5px; }
+.card-key {
+  font-size: 11px; font-weight: 500; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1.5px;
+}
+.card-val { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+
+/* SOCIAL CARDS */
+.social-card {
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex; align-items: center; gap: 20px;
+  height: 104px;
+  text-decoration: none;
+  transition: box-shadow .2s, transform .2s;
+}
+.social-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); transform: translateY(-2px); }
+.social-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; overflow: hidden;
+}
+.social-icon img { width: 26px; height: 26px; object-fit: contain; display: block; }
+.social-info { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.social-name { font-size: 16px; font-weight: 600; color: var(--text-dark); }
+.social-handle { font-size: 13px; color: var(--text-muted); }
+.social-arrow { font-size: 18px; font-weight: 500; color: var(--primary); }
+
+/* FOOTER */
+footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  height: 104px; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ft-name { font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
+.ft-role { font-size: 13px; color: var(--text-muted); }
+.ft-copy { font-size: 13px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-back">← Portfólio</a>
+  <span class="nav-logo">EA · Contato</span>
+  <div class="nav-spacer"></div>
+</nav>
+
+<!-- HERO -->
+<div class="section-hero">
+  <div class="hero-left">
+    <p class="hero-label">Contato</p>
+    <h1 class="hero-title">Vamos conversar?</h1>
+    <div class="rule"></div>
+    <p class="hero-desc">Estou sempre aberta a novos projetos, colaborações e oportunidades. Entre em contato pelo canal de sua preferência — responderei o mais breve possível.</p>
+  </div>
+  <div class="hero-right">
+    <div class="avail-card">
+      <div class="status-row">
+        <span class="status-dot"></span>
+        <span class="status-text">Disponível para projetos</span>
+      </div>
+      <div class="avail-name">Emilene Araújo</div>
+      <div class="avail-role">Senior Product Designer</div>
+      <div class="avail-rule"></div>
+      <div class="avail-loc">São Paulo, Brasil · Remoto / Híbrido</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="section-contact">
+
+  <!-- DADOS PESSOAIS -->
+  <div class="col-info">
+    <p class="col-label">Informações de Contato</p>
+    <h2 class="col-title">Dados pessoais</h2>
+    <div class="rule"></div>
+
+    <!-- Nome -->
+    <div class="info-card">
+      <div class="icon-circle">
+        <img src="https://www.figma.com/api/mcp/asset/194e5cda-a678-4a92-af85-7198c7c0c338" alt="Pessoa">
+      </div>
+      <div class="card-text">
+        <span class="card-key">Nome completo</span>
+        <span class="card-val">Emilene Aparecida de Araujo</span>
+      </div>
+    </div>
+
+    <!-- Telefone -->
+    <a class="info-card" href="tel:+5511962619305">
+      <div class="icon-circle">
+        <img src="https://www.figma.com/api/mcp/asset/65db0df0-a809-49fd-aeb7-5bd0890c3c1c" alt="Telefone">
+      </div>
+      <div class="card-text">
+        <span class="card-key">Telefone / WhatsApp</span>
+        <span class="card-val">+55 (11) 96261-9305</span>
+      </div>
+    </a>
+
+    <!-- Email -->
+    <a class="info-card" href="mailto:emiaaraujo@gmail.com">
+      <div class="icon-circle">
+        <img src="https://www.figma.com/api/mcp/asset/c8646a99-d881-4af5-8186-46dbf7609893" alt="E-mail">
+      </div>
+      <div class="card-text">
+        <span class="card-key">E-mail</span>
+        <span class="card-val">emiaaraujo@gmail.com</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- REDES SOCIAIS -->
+  <div class="col-social">
+    <p class="col-label">Redes Sociais</p>
+    <h2 class="col-title">Me encontre online</h2>
+    <div class="rule"></div>
+
+    <!-- Instagram -->
+    <a class="social-card" href="https://www.instagram.com/mi.a.araujo/" target="_blank" rel="noopener">
+      <div class="social-icon" style="background:#c1185b;">
+        <img src="https://www.figma.com/api/mcp/asset/fe6f871a-9f6d-4cf1-b2f1-1013dc84de5c" alt="Instagram">
+      </div>
+      <div class="social-info">
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@mi.a.araujo</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="social-card" href="https://www.linkedin.com/in/emilene-araujo-b173a5a0/" target="_blank" rel="noopener">
+      <div class="social-icon" style="background:#0a66c2;">
+        <img src="https://www.figma.com/api/mcp/asset/4d911ed0-07c9-4f65-af88-c9f9ae0eda0c" alt="LinkedIn">
+      </div>
+      <div class="social-info">
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">emilene-araujo-b173a5a0</span>
+      </div>
+      <span class="social-arrow">→</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="ft-name">Emilene Araújo</div>
+    <div class="ft-role">Senior Product Designer · São Paulo, Brasil</div>
+  </div>
+  <span class="ft-copy">© 2026 · Portfólio</span>
+</footer>
+
+</body>
+</html>

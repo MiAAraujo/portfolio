@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emilene Araújo — UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-cream: #faf8f4;
+  --bg-warm: #f2eae1;
+  --bg-card: #eae3d9;
+  --bg-chip: #eddccc;
+  --primary: #623b17;
+  --text-dark: #18110c;
+  --text-body: #393027;
+  --text-muted: #6b6055;
+  --border: #ccc4ba;
+  --font: 'Inter', sans-serif;
+  --max-w: 1280px;
+  --gutter: 80px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font);
+  background: var(--bg-cream);
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--gutter);
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-weight: 700; font-size: 18px; color: var(--primary); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* HERO */
+.hero-section {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 80px var(--gutter);
+  display: flex; align-items: center; gap: 80px;
+}
+.hero-text { flex: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg-chip); border-radius: 100px;
+  padding: 6px 16px; font-size: 13px; color: var(--primary);
+  font-weight: 500; margin-bottom: 24px;
+}
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+.hero-text h1 {
+  font-size: 52px; font-weight: 700; color: var(--text-dark);
+  line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px;
+}
+.hero-text h1 em { font-style: normal; color: var(--primary); }
+.hero-text p {
+  font-size: 17px; color: var(--text-muted);
+  max-width: 480px; margin-bottom: 36px; line-height: 1.7;
+}
+.hero-ctas { display: flex; gap: 12px; }
+.btn-primary {
+  background: var(--primary); color: #fff;
+  padding: 13px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-outline {
+  background: transparent; color: var(--primary);
+  padding: 13px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  text-decoration: none; display: inline-block;
+  border: 1.5px solid var(--primary);
+  transition: background .2s;
+}
+.btn-outline:hover { background: var(--bg-chip); }
+
+/* HERO PHOTO */
+.hero-photo {
+  width: 280px; height: 340px;
+  border-radius: 220px;
+  overflow: hidden; flex-shrink: 0;
+  border: 2px solid var(--border);
+  background: var(--bg-chip);
+  position: relative;
+}
+.hero-photo img {
+  position: absolute;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* SECTION WRAPPER */
+.section-wrap { padding: 72px 0; }
+.section-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.section-label {
+  font-size: 12px; font-weight: 600; color: var(--primary);
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px;
+}
+.section-title { font-size: 32px; font-weight: 700; color: var(--text-dark); letter-spacing: -0.5px; }
+
+/* CAROUSEL CHROME */
+.carousel-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
+.carousel-arrows { display: flex; gap: 8px; }
+.arrow-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--primary); color: #fff;
+  border: none; cursor: pointer; font-size: 20px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity .2s; flex-shrink: 0;
+}
+.arrow-btn:disabled { opacity: 0.3; cursor: default; }
+.arrow-btn:not(:disabled):hover { opacity: 0.85; }
+
+/* CAROUSEL VIEWPORT */
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-track {
+  display: flex;
+  gap: 32px;
+  transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+  will-change: transform;
+}
+
+/* PROJECTS CAROUSEL */
+.projects-bg { background: var(--bg-warm); }
+
+.project-card {
+  flex: 0 0 calc(50% - 16px);
+  min-width: calc(50% - 16px);
+  background: var(--bg-cream);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: transform .2s, box-shadow .2s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(98,59,23,.12);
+}
+.project-card-img {
+  height: 272px;
+  background: var(--bg-card);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.project-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-card-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 6px; }
+.tag {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 500;
+  width: fit-content;
+}
+.tag-brown { background: var(--bg-chip); color: #4a280e; }
+.tag-green { background: #cfe1cc; color: #1e471c; }
+.project-card-title { font-size: 17px; font-weight: 600; color: var(--text-dark); }
+.project-card-desc { font-size: 14px; color: var(--text-muted); }
+
+/* STATSBAR */
+.stats-bar {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0 var(--gutter);
+  height: 88px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.stats-bar .stat { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+.stats-bar .stat-val { font-size: 22px; font-weight: 700; color: var(--primary); }
+.stats-bar .stat-desc { font-size: 13px; color: var(--text-muted); }
+.stats-bar .sep { width: 1px; height: 48px; background: var(--border); }
+
+/* ABOUT */
+.about-wrap {
+  display: flex; gap: 80px; align-items: flex-start;
+  padding: 96px var(--gutter);
+  background: var(--bg-cream);
+}
+.about-left { flex: 0 0 600px; display: flex; flex-direction: column; gap: 20px; }
+.about-label { font-size: 12px; font-weight: 500; color: var(--primary); text-transform: uppercase; letter-spacing: 2.5px; }
+.about-title { font-size: 42px; font-weight: 700; color: var(--text-dark); line-height: 1.18; letter-spacing: -1px; }
+.about-rule { width: 48px; height: 3px; background: var(--primary); border-radius: 2px; }
+.about-body { font-size: 17px; color: var(--text-body); line-height: 1.75; display: flex; flex-direction: column; gap: 20px; }
+
+/* SKILLS PANEL */
+.skills-panel {
+  flex: 0 0 560px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 40px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+.skills-panel-title { font-size: 18px; font-weight: 600; color: var(--text-dark); }
+.skill-group { display: flex; flex-direction: column; gap: 10px; }
+.skill-group-label { font-size: 11px; font-weight: 500; color: #4a280e; text-transform: uppercase; letter-spacing: 1.5px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.stag {
+  padding: 6px 12px; border-radius: 6px;
+  font-size: 13px; font-weight: 400;
+}
+.stag-brown { background: var(--bg-chip); color: #4a280e; }
+.stag-blue  { background: #cad8ea; color: #153157; }
+.stag-green { background: #cfe1cc; color: #1e471c; }
+
+/* CONTACT */
+.btn-light {
+  background: #fff; color: var(--primary);
+  padding: 14px 36px; border-radius: 100px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none; display: inline-block;
+  transition: opacity .2s;
+}
+.btn-light:hover { opacity: .9; }
+
+footer {
+  background: var(--text-dark); color: rgba(255,255,255,.4);
+  text-align: center; padding: 24px;
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">EA.</div>
+  <ul class="nav-links">
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-section">
+  <div class="hero-text">
+    <div class="hero-badge"><span class="hero-badge-dot"></span> Disponível para novos projetos</div>
+    <h1>Olá, sou <em>Emilene</em><br>UX Designer</h1>
+    <p>Transformo desafios complexos em experiências digitais intuitivas e memoráveis. Foco em pesquisa, prototipagem e design centrado no usuário.</p>
+    <div class="hero-ctas">
+      <a href="#projetos" class="btn-primary">Ver projetos</a>
+      <a href="contato.html" class="btn-outline">Entrar em contato</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://www.figma.com/api/mcp/asset/cab5c3ae-ce44-4e22-9be4-3d0992c87365" alt="Emilene Araújo">
+  </div>
+</div>
+
+<!-- STATSBAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-val">10+</span>
+    <span class="stat-desc">Anos de Experiência</span>
+  </div>
+  <div class="sep"></div>
+  <div class="stat">
+    <span class="stat-val">Produtos Digitais</span>
+    <span class="stat-desc">Sites e Apps</span>
+  </div>
+  <div class="sep"></div>
+  <div class="stat">
+    <span class="stat-val">UX/UI</span>
+    <span class="stat-desc">Design Thinking &amp; Ágil</span>
+  </div>
+  <div class="sep"></div>
+  <div class="stat">
+    <span class="stat-val">Figma + IA</span>
+    <span class="stat-desc">Ferramentas de Ponta</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-wrap" id="sobre">
+
+  <!-- LEFT: bio text -->
+  <div class="about-left">
+    <p class="about-label">Sobre mim</p>
+    <h2 class="about-title">Experiência que conecta<br>negócio e usuário</h2>
+    <div class="about-rule"></div>
+    <div class="about-body">
+      <p>Sou Product Designer formada em Desenho Industrial, com pós-graduação em Marketing e Experiência do Usuário. Possuo mais de 10 anos de experiência em e-commerce e produtos digitais, atuando em todas as etapas do processo de design, da descoberta à entrega, com foco em soluções centradas no usuário e alinhadas aos objetivos do negócio.</p>
+      <p>Tenho experiência em UX/UI Design, Design Thinking, Design Systems, pesquisa, mapeamento de jornadas, fluxos, wireframes e prototipação de alta fidelidade. Participei da criação e evolução de lojas virtuais em plataformas como Magento, Rakuten e Tray, além de sistemas SaaS e backoffices corporativos.</p>
+      <p>Utilizo Inteligência Artificial como apoio ao processo de design, com experiência em ferramentas como Claude e Figma Make para pesquisa, ideação e prototipação. Possuo domínio de Figma e Adobe Creative Cloud, além de conhecimentos de Front-End que facilitam a colaboração com equipes de desenvolvimento.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: competências panel -->
+  <div class="skills-panel">
+    <p class="skills-panel-title">Competências</p>
+
+    <div class="skill-group">
+      <p class="skill-group-label">Design &amp; UX</p>
+      <div class="skill-tags">
+        <span class="stag stag-brown">UX/UI Design</span>
+        <span class="stag stag-brown">Design Thinking</span>
+        <span class="stag stag-brown">Prototipação</span>
+        <span class="stag stag-brown">Design System</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-label">Ferramentas</p>
+      <div class="skill-tags">
+        <span class="stag stag-blue">Figma</span>
+        <span class="stag stag-blue">Adobe Suite</span>
+        <span class="stag stag-blue">Figma Make + IA</span>
+        <span class="stag stag-blue">Front-End (básico)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <p class="skill-group-label">Metodologias</p>
+      <div class="skill-tags">
+        <span class="stag stag-green">Métodos Ágeis</span>
+        <span class="stag stag-green">Brainstorming</span>
+        <span class="stag stag-green">E-Commerce</span>
+        <span class="stag stag-green">SaaS / Backoffice</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- PROJECTS CAROUSEL -->
+<div class="section-wrap projects-bg" id="projetos">
+  <div class="section-inner">
+    <div class="carousel-header">
+      <div>
+        <div class="section-label">Portfólio</div>
+        <div class="section-title">Projetos em destaque</div>
+      </div>
+      <div class="carousel-arrows">
+        <button class="arrow-btn" id="proj-prev" aria-label="Anterior">&#8249;</button>
+        <button class="arrow-btn" id="proj-next" aria-label="Próximo">&#8250;</button>
+      </div>
+    </div>
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="proj-track">
+
+        <a class="project-card" href="projeto-ecommerce.html">
+          <div class="project-card-img">
+            <img src="https://www.figma.com/api/mcp/asset/6e51e95d-9ce8-477c-8f26-48e6e6e03a9f" alt="Troca em loja">
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-brown">E-Commerce · UX</span>
+            <div class="project-card-title">Troca em loja</div>
+            <div class="project-card-desc">Nova função para E-Commerce Renner no Site/App</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projeto-saas.html">
+          <div class="project-card-img">
+            <img src="https://www.figma.com/api/mcp/asset/16ed4b6a-21e1-4711-9eac-8b37b89134bb" alt="BackOffice Strappy/URI">
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-green">SaaS · Dashboard</span>
+            <div class="project-card-title">BackOffice Strappy/URI</div>
+            <div class="project-card-desc">Ferramenta de cadastro de produtos para Ecommerce</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projeto-designsystem.html">
+          <div class="project-card-img">
+            <img src="https://www.figma.com/api/mcp/asset/d4515fd4-e9b2-421d-9d61-916cf8d51fda" alt="Design System Lojas Renner">
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-brown">Design System</span>
+            <div class="project-card-title">Design System Lojas Renner</div>
+            <div class="project-card-desc">Da ideação à documentação</div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projeto-mobile.html">
+          <div class="project-card-img">
+            <img src="https://www.figma.com/api/mcp/asset/4c6d284c-cddf-4a15-a7d2-91e5c6c82ea5" alt="Avaliação de Produtos e Gamificação">
+          </div>
+          <div class="project-card-body">
+            <span class="tag tag-green">App · Mobile</span>
+            <div class="project-card-title">Avaliação de Produtos e Gamificação</div>
+            <div class="project-card-desc">Toda a jornada do usuário</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2024 Emilene Araújo — UX Designer</p>
+</footer>
+
+<script>
+function carousel(trackId, prevId, nextId, visible) {
+  var track = document.getElementById(trackId);
+  var prev  = document.getElementById(prevId);
+  var next  = document.getElementById(nextId);
+  var items = Array.from(track.children);
+  var total = items.length;
+  var idx = 0;
+
+  function getGap() {
+    return parseFloat(getComputedStyle(track).gap) || 32;
+  }
+  function getItemW() {
+    return items[0].getBoundingClientRect().width + getGap();
+  }
+  function update() {
+    track.style.transform = 'translateX(-' + (idx * getItemW()) + 'px)';
+    prev.disabled = idx === 0;
+    next.disabled = idx >= total - visible;
+  }
+
+  prev.addEventListener('click', function() { if (idx > 0) { idx--; update(); } });
+  next.addEventListener('click', function() { if (idx < total - visible) { idx++; update(); } });
+  window.addEventListener('resize', update);
+  update();
+}
+
+carousel('proj-track', 'proj-prev', 'proj-next', 2);
+</script>
+</body>
+</html>

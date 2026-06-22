@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design System Lojas Renner — Emilene Araújo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-cream: #faf8f4;
+  --bg-warm: #f2eae1;
+  --bg-card: #eae3d9;
+  --bg-chip: #eddccc;
+  --primary: #623b17;
+  --text-dark: #18110c;
+  --text-body: #393027;
+  --text-muted: #6b6055;
+  --border: #ccc4ba;
+  --font: 'Inter', sans-serif;
+  --gutter: 80px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg-cream); color: var(--text-body); line-height: 1.6; }
+
+/* NAV */
+nav {
+  background: var(--bg-cream);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  height: 72px; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-back {
+  display: inline-flex; align-items: center;
+  padding: 14px 24px; border: 1px solid var(--border); border-radius: 10px;
+  font-size: 15px; font-weight: 500; color: var(--text-body);
+  text-decoration: none; background: var(--bg-cream); transition: background .2s;
+}
+.nav-back:hover { background: var(--bg-card); }
+.nav-logo { font-size: 18px; font-weight: 700; color: var(--primary); }
+.nav-count { font-size: 14px; color: var(--text-muted); }
+
+/* HERO */
+.hero-img {
+  height: 520px; width: 100%; overflow: hidden;
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* CONTENT */
+.content { display: flex; gap: 80px; padding: 72px var(--gutter); }
+.col-left { flex: 0 0 680px; display: flex; flex-direction: column; gap: 36px; }
+.col-right { flex: 0 0 360px; display: flex; flex-direction: column; gap: 24px; }
+
+/* HEADER */
+.proj-chip {
+  display: inline-flex; align-items: center;
+  padding: 6px 12px; border-radius: 100px;
+  font-size: 12px; font-weight: 500;
+}
+.chip-brown { background: var(--bg-chip); color: #4a280e; }
+.chip-green { background: #cfe1cc; color: #1e471c; }
+.chip-blue  { background: #cad8ea; color: #153157; }
+.proj-title { font-size: 48px; font-weight: 700; color: var(--text-dark); letter-spacing: -1px; line-height: 1.1; }
+.rule { width: 48px; height: 3px; background: var(--primary); border-radius: 2px; }
+
+/* FIELDS */
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field-label { font-size: 11px; font-weight: 500; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+.field-area {
+  background: var(--bg-warm); border: 1px solid var(--border);
+  border-radius: 10px; padding: 16px 20px;
+  font-size: 16px; color: rgba(107,96,85,.9); line-height: 1.65;
+}
+
+/* META CARD */
+.meta-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.meta-card-title { font-size: 16px; font-weight: 600; color: var(--text-dark); }
+.meta-rule { height: 3px; background: var(--border); border-radius: 2px; }
+.meta-item { display: flex; flex-direction: column; gap: 4px; }
+.meta-key { font-size: 10px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.8px; }
+.meta-val { font-size: 15px; font-weight: 600; color: var(--text-dark); }
+
+/* GALLERY */
+.gallery {
+  background: var(--bg-warm); border: 1px solid var(--border);
+  border-radius: 16px; padding: 28px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.gallery-title { font-size: 14px; font-weight: 600; color: var(--text-dark); }
+.gallery-thumb {
+  height: 160px; border-radius: 8px; overflow: hidden;
+  background: var(--bg-card); border: 1px solid var(--border);
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* PROCESSO */
+.processo { background: var(--bg-warm); padding: 64px var(--gutter); display: flex; flex-direction: column; gap: 32px; }
+.proc-hdr { display: flex; flex-direction: column; gap: 12px; }
+.proc-label { font-size: 11px; font-weight: 500; color: var(--primary); text-transform: uppercase; letter-spacing: 2.5px; }
+.proc-title { font-size: 32px; font-weight: 700; color: var(--text-dark); letter-spacing: -0.5px; }
+.proc-row { display: flex; gap: 24px; }
+.proc-card {
+  flex: 1; border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; background: var(--bg-cream);
+  display: flex; flex-direction: column;
+}
+.proc-img { height: 200px; overflow: hidden; background: var(--bg-card); }
+.proc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.proc-body { padding: 14px 16px; font-size: 14px; font-weight: 600; color: var(--text-dark); }
+
+/* NAV PROJETOS */
+.nav-proj {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 48px var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.btn-prev, .btn-next {
+  padding: 14px 24px; border-radius: 10px;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; display: inline-block; transition: opacity .2s;
+}
+.btn-prev { background: var(--bg-cream); border: 1px solid var(--border); color: var(--text-body); }
+.btn-prev:hover { background: var(--bg-card); }
+.btn-prev.disabled { opacity: 0.35; pointer-events: none; }
+.btn-next { background: var(--primary); color: #fff; border: none; cursor: pointer; }
+.btn-next:hover { opacity: .88; }
+.btn-next.disabled { opacity: 0.35; pointer-events: none; }
+
+/* FOOTER */
+footer {
+  background: var(--bg-card); border-top: 1px solid var(--border);
+  height: 88px; padding: 0 var(--gutter);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ft-name { font-size: 16px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
+.ft-role { font-size: 13px; color: var(--text-muted); }
+.ft-copy { font-size: 13px; color: var(--text-muted); }
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Voltar ao Portfólio</a>
+  <span class="nav-logo">EA · Portfolio</span>
+  <span class="nav-count">3 / 4</span>
+</nav>
+
+<div class="hero-img">
+  <img src="https://www.figma.com/api/mcp/asset/44ffece5-cd7b-45d6-b70d-b9f77d48756b" alt="Design System Lojas Renner">
+</div>
+
+<div class="content">
+  <!-- LEFT -->
+  <div class="col-left">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <span class="proj-chip chip-brown">Design System</span>
+      <h1 class="proj-title">Design System Lojas Renner</h1>
+      <div class="rule"></div>
+    </div>
+    <div class="field">
+      <span class="field-label">Visão Geral</span>
+      <div class="field-area">Participei da criação do Design System do e-commerce Renner para estabelecer uma linguagem visual consistente entre site e app. Atuei desde a auditoria e definição de padrões até o desenvolvimento dos componentes e documentação, em colaboração com o time de desenvolvimento.</div>
+    </div>
+    <div class="field">
+      <span class="field-label">O Desafio</span>
+      <div class="field-area">Tokens de cor, tipografia e espaçamento eram aplicados de forma inconsistente, e componentes similares existiam em múltiplas versões sem documentação. O cenário gerava retrabalho, dificultava a colaboração entre Design e Desenvolvimento e tornava cada nova entrega mais lenta.</div>
+    </div>
+    <div class="field">
+      <span class="field-label">A Solução</span>
+      <div class="field-area">Realizamos uma auditoria das interfaces existentes para mapear inconsistências e definir a arquitetura do sistema: tokens globais, biblioteca de componentes escaláveis com variantes documentadas e guidelines de uso. Todo o sistema foi construído no Figma com foco em escalabilidade e adoção real pelas equipes.</div>
+    </div>
+    <div class="field">
+      <span class="field-label">Resultados &amp; Impacto</span>
+      <div class="field-area">O tempo de criação de novas telas caiu 35% com o uso de componentes prontos e validados. As revisões por inconsistência nos Design Reviews reduziram 50%, e a documentação centralizada acelerou o onboarding de novos designers e a autonomia do time de desenvolvimento.</div>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="col-right">
+    <div class="meta-card">
+      <span class="meta-card-title">Informações do Projeto</span>
+      <div class="meta-rule"></div>
+      <div class="meta-item"><span class="meta-key">Meu Papel</span><span class="meta-val">Design Lead · Documentação</span></div>
+      <div class="meta-item"><span class="meta-key">Ferramentas</span><span class="meta-val">Figma · Storybook · Notion</span></div>
+      <div class="meta-item"><span class="meta-key">Plataforma</span><span class="meta-val">Multi-plataforma</span></div>
+      <div class="meta-item"><span class="meta-key">Ano</span><span class="meta-val">2022 — 2023</span></div>
+      <div class="meta-rule"></div>
+      <div class="field">
+        <span class="field-label">Duração</span>
+        <div class="field-area">1 ano</div>
+      </div>
+    </div>
+    <div class="gallery">
+      <span class="gallery-title">Imagens adicionais</span>
+      <div class="gallery-thumb"><img src="https://www.figma.com/api/mcp/asset/32bf2be3-9e49-4d20-812b-049d897650c9" alt="Imagem adicional 1"></div>
+      <div class="gallery-thumb"><img src="https://www.figma.com/api/mcp/asset/56a73b88-e185-4c0f-a852-87fc910988c1" alt="Imagem adicional 2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="processo">
+  <div class="proc-hdr">
+    <span class="proc-label">Processo</span>
+    <h2 class="proc-title">Etapas do Projeto</h2>
+  </div>
+  <div class="proc-row">
+    <div class="proc-card">
+      <div class="proc-img"><img src="https://www.figma.com/api/mcp/asset/b1992db7-8208-449a-9d8c-02738c545608" alt="Descoberta & Pesquisa"></div>
+      <div class="proc-body">Descoberta & Pesquisa</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-img"><img src="https://www.figma.com/api/mcp/asset/d419e8e5-628e-4f02-b474-0cc97af560a7" alt="Wireframes & Fluxos"></div>
+      <div class="proc-body">Wireframes & Fluxos</div>
+    </div>
+    <div class="proc-card">
+      <div class="proc-img"><img src="https://www.figma.com/api/mcp/asset/2c5eea88-4e53-4854-927b-10cacf2d914e" alt="Protótipo & Testes"></div>
+      <div class="proc-body">Protótipo & Testes</div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-proj">
+  <a href="projeto-saas.html" class="btn-prev">← Projeto Anterior</a>
+  <a href="projeto-mobile.html" class="btn-next">Próximo Projeto →</a>
+</div>
+
+<footer>
+  <div>
+    <div class="ft-name">Emilene Araújo</div>
+    <div class="ft-role">Senior Product Designer</div>
+  </div>
+  <span class="ft-copy">© 2026 · Portfolio</span>
+</footer>
+</body>
+</html>
