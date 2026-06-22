@@ -160,6 +160,26 @@ footer {
 .ft-name { font-size: 18px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
 .ft-role { font-size: 13px; color: var(--text-muted); }
 .ft-copy { font-size: 13px; color: var(--text-muted); }
+
+/* ── RESPONSIVO ── */
+@media (max-width: 900px) {
+  :root { --gutter: 40px; }
+  .section-hero { flex-direction: column; padding: 56px var(--gutter) 48px; gap: 40px; }
+  .hero-left { flex: unset; width: 100%; }
+  .hero-right { width: 100%; }
+  .hero-title { font-size: 40px; }
+  .section-contact { flex-direction: column; padding: 48px var(--gutter) 56px; gap: 40px; }
+  .col-info, .col-social { flex: unset; width: 100%; }
+}
+
+@media (max-width: 560px) {
+  :root { --gutter: 20px; }
+  .hero-title { font-size: 32px; }
+  .hero-desc { font-size: 16px; }
+  .avail-card { padding: 24px 20px; }
+  .avail-name { font-size: 22px; }
+  footer { height: auto; padding: 24px var(--gutter); flex-direction: column; gap: 8px; text-align: center; }
+}
 </style>
 </head>
 <body>

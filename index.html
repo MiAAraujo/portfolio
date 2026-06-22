@@ -243,6 +243,66 @@ footer {
   text-align: center; padding: 24px;
   font-size: 13px;
 }
+
+/* ── RESPONSIVO ── */
+@media (max-width: 900px) {
+  :root { --gutter: 40px; }
+
+  /* Nav */
+  .nav-links { gap: 20px; }
+
+  /* Hero */
+  .hero-section { flex-direction: column-reverse; align-items: center; padding: 48px var(--gutter); gap: 40px; text-align: center; }
+  .hero-text h1 { font-size: 38px; }
+  .hero-text p { max-width: 100%; }
+  .hero-ctas { justify-content: center; }
+  .hero-photo { width: 200px; height: 240px; }
+
+  /* StatsBar */
+  .stats-bar { flex-wrap: wrap; height: auto; gap: 16px; padding: 24px var(--gutter); justify-content: center; }
+  .stats-bar .sep { display: none; }
+
+  /* About */
+  .about-wrap { flex-direction: column; padding: 64px var(--gutter); gap: 40px; }
+  .about-left { flex: unset; width: 100%; }
+  .skills-panel { flex: unset; width: 100%; }
+
+  /* Projetos */
+  .project-card { flex: 0 0 calc(100% - 0px); min-width: calc(100% - 0px); }
+}
+
+@media (max-width: 560px) {
+  :root { --gutter: 20px; }
+
+  /* Nav */
+  nav { padding: 0 var(--gutter); }
+  .nav-links { gap: 14px; }
+  .nav-links a { font-size: 13px; }
+
+  /* Hero */
+  .hero-section { padding: 40px var(--gutter); }
+  .hero-text h1 { font-size: 32px; }
+  .hero-badge { font-size: 12px; }
+  .btn-primary, .btn-outline { padding: 11px 20px; font-size: 14px; }
+
+  /* StatsBar */
+  .stats-bar { padding: 20px var(--gutter); gap: 12px; }
+  .stats-bar .stat-val { font-size: 18px; }
+  .stats-bar .stat-desc { font-size: 12px; }
+
+  /* About */
+  .about-wrap { padding: 48px var(--gutter); }
+  .about-title { font-size: 30px; }
+  .about-body { font-size: 15px; }
+  .skills-panel { padding: 24px 20px; }
+
+  /* Projetos */
+  .section-wrap { padding: 48px 0; }
+  .section-inner { padding: 0 var(--gutter); }
+  .section-title { font-size: 24px; }
+  .project-card-img { height: 200px; }
+  .carousel-track { gap: 16px; }
+}
 </style>
 </head>
 <body>
